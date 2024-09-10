@@ -3,14 +3,10 @@ function getComputerChoice() {
   // generates a random integer from 0 to less than 3
   const randomNum = Math.trunc(Math.random() * 3);
 
-  let compChoice = "";
-
   // returns random choice from 'rock', 'paper', and 'scissor'
-  if (randomNum == 0) compChoice = "rock";
-  else if (randomNum == 1) compChoice = "paper";
-  else compChoice = "scissor";
-
-  return compChoice;
+  if (randomNum == 0) return "rock";
+  else if (randomNum == 1) return "paper";
+  else return "scissor";
 }
 
 // takes the user choice
@@ -44,5 +40,5 @@ if (
   console.log("DRAW! 🤔");
 } else console.log("Check the spelling");
 
-console.log("Computer Choice : " + compCh);
 console.log("Your Choice : " + userCh);
+console.log("Computer Choice : " + compCh);
