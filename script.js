@@ -10,7 +10,7 @@ function getComputerChoice() {
 }
 
 // takes the user choice
-function getUserChoice() {
+function getHumanChoice() {
   // accepts user choice
   const userChoice = prompt(`Choose between 'rock', 'paper', or 'scissor`);
 
@@ -18,7 +18,7 @@ function getUserChoice() {
 }
 
 let compCh = getComputerChoice();
-let userCh = getUserChoice();
+let userCh = getHumanChoice();
 
 if (
   (compCh == "rock" && userCh == "paper") ||
