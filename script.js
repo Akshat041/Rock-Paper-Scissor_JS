@@ -20,3 +20,29 @@ function getUserChoice() {
 
   return userChoice;
 }
+
+let compCh = getComputerChoice();
+let userCh = getUserChoice();
+
+if (
+  (compCh == "rock" && userCh == "paper") ||
+  (compCh == "paper" && userCh == "scissor") ||
+  (compCh == "scissor" && userCh == "rock")
+) {
+  console.log("You WIN! 🎁");
+} else if (
+  (compCh == "rock" && userCh == "scissor") ||
+  (compCh == "paper" && userCh == "rock") ||
+  (compCh == "scissor" && userCh == "paper")
+) {
+  console.log("You LOSE! 😑");
+} else if (
+  (compCh == "rock" && userCh == "rock") ||
+  (compCh == "paper" && userCh == "paper") ||
+  (compCh == "scissor" && userCh == "scissor")
+) {
+  console.log("DRAW! 🤔");
+} else console.log("Check the spelling");
+
+console.log("Computer Choice : " + compCh);
+console.log("Your Choice : " + userCh);
