@@ -20,6 +20,9 @@ function getHumanChoice() {
 let compCh = getComputerChoice();
 let userCh = getHumanChoice();
 
+let humanScore = 0;
+let computerScore = 0;
+
 if (
   (compCh == "rock" && userCh == "paper") ||
   (compCh == "paper" && userCh == "scissor") ||
