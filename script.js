@@ -46,9 +46,9 @@ function playGame() {
         }`
       );
     } else if (
-      (computerChoice == "rock" && humanChoice == "rock") ||
-      (computerChoice == "paper" && humanChoice == "paper") ||
-      (computerChoice == "scissor" && humanChoice == "scissor")
+      (computerChoice == "Rock" && humanChoice == "rock") ||
+      (computerChoice == "Paper" && humanChoice == "paper") ||
+      (computerChoice == "Scissor" && humanChoice == "scissor")
     )
       console.log(
         `Draw! ${
