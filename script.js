@@ -15,8 +15,20 @@ let userChoice;
 const rock = document.querySelector(".rock");
 const paper = document.querySelector(".paper");
 const scissor = document.querySelector(".scissor");
-
 const div = document.querySelector(".results");
+const reset = document.querySelector(".reset");
+
+const p = document.createElement("p");
+div.appendChild(p);
+
+const scoreDisplayHuman = document.createElement("p");
+div.appendChild(scoreDisplayHuman);
+
+const scoreDisplayComputer = document.createElement("p");
+div.appendChild(scoreDisplayComputer);
+
+const result = document.createElement("p");
+div.appendChild(result);
 
 rock.addEventListener("click", () => {
   userChoice = "rock";
@@ -33,6 +45,10 @@ scissor.addEventListener("click", () => {
   playGame(userChoice);
 });
 
+reset.addEventListener("click", () => {
+  location.reload();
+});
+
 let humanScore = 0;
 let computerScore = 0;
 
@@ -44,54 +60,43 @@ function playRound(humanChoice, computerChoice) {
     (computerChoice == "Scissor" && humanChoice == "rock")
   ) {
     humanScore += 1;
-    console.log(
-      `You WIN! ${
-        humanChoice.at(0).toUpperCase() + humanChoice.slice(1)
-      } beats ${computerChoice}`
-    );
+    p.textContent = `You WIN! ${
+      humanChoice.at(0).toUpperCase() + humanChoice.slice(1)
+    } beats ${computerChoice}`;
   } else if (
     (computerChoice == "Rock" && humanChoice == "scissor") ||
     (computerChoice == "Paper" && humanChoice == "rock") ||
     (computerChoice == "Scissor" && humanChoice == "paper")
   ) {
     computerScore += 1;
-    console.log(
-      `You LOSE! ${computerChoice} beats ${
-        humanChoice.at(0).toUpperCase() + humanChoice.slice(1)
-      }`
-    );
+    p.textContent = `You LOSE! ${computerChoice} beats ${
+      humanChoice.at(0).toUpperCase() + humanChoice.slice(1)
+    }`;
   } else if (
     (computerChoice == "Rock" && humanChoice == "rock") ||
     (computerChoice == "Paper" && humanChoice == "paper") ||
     (computerChoice == "Scissor" && humanChoice == "scissor")
   )
-    console.log(
-      `Draw! ${
-        humanChoice.at(0).toUpperCase() + humanChoice.slice(1)
-      } cannot beat another ${computerChoice}`
-    );
+    p.textContent = `Draw! ${
+      humanChoice.at(0).toUpperCase() + humanChoice.slice(1)
+    } cannot beat another ${computerChoice}`;
   else {
-    console.log("Invalid Input. Please reload the page!");
+    p.textContent = "Invalid Input. Please reload the page!";
   }
 }
 
-// plays 5 rounds of game
+// plays a game
 function playGame(userSelect) {
-  // loop to call the playRound function 1 times
-  console.log(`Round : 1`);
-
   const humanSelection = userSelect;
   const computerSelection = getComputerChoice();
 
   playRound(humanSelection, computerSelection);
 
   //Displays scores of both the players
-  console.log(`Your Score: ${humanScore}`);
-  console.log(`Computer Score: ${computerScore}`);
+  scoreDisplayHuman.textContent = `Your Score: ${humanScore}`;
+  scoreDisplayComputer.textContent = `Computer Score: ${computerScore}`;
 
   // Displays final results of the round
-  if (humanScore > computerScore) console.log(`You WIN!`);
-  else if (humanScore < computerScore) console.log(`You LOSE!`);
-  else console.log(`No WINNER! No LOSER!`);
-  console.log(`--------------------`);
+  if (humanScore == 5) result.textContent = `You WIN!`;
+  else if (computerScore == 5) result.textContent = `You LOSE!`;
 }
