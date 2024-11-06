@@ -1,2 +1,3 @@
 JavaScript practise project.
-In this project I tried to make a console based Rock, Paper, Scissor game.
+Simple Rock, Paper, Scissor game.
+Project link: https://akshat041.github.io/Rock-Paper-Scissor_JS/
